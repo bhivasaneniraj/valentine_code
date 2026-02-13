@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day Mansi! 💝</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating hearts animation */
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 6s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .container {
+            background: white;
+            padding: 60px 50px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            color: #9c27b0;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .question {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+            position: relative;
+            min-height: 60px;
+            align-items: center;
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #yesBtn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        #noBtn {
+            background: #f0f0f0;
+            color: #666;
+        }
+
+        #noBtn:hover {
+            background: #e0e0e0;
+        }
+
+        .message {
+            color: #e91e63;
+            font-size: 1.1em;
+            margin-top: 20px;
+            font-weight: bold;
+            min-height: 30px;
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .popup-content {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            animation: scaleIn 0.5s;
+            position: relative;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        .popup h2 {
+            color: #e91e63;
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .popup p {
+            font-size: 1.3em;
+            color: #333;
+            line-height: 1.8;
+            margin: 20px 0;
+        }
+
+        .celebration {
+            font-size: 4em;
+            margin: 20px 0;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .love-message {
+            color: #9c27b0;
+            font-style: italic;
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        /* Sparkles effect */
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            animation: sparkle 1s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💝 Happy Valentine's Day! 💝</h1>
+        <div class="name">Mansi</div>
+        <div class="question">
+            Will you be my Valentine? 🌹
+        </div>
+        <div class="buttons">
+            <button id="yesBtn">Yes! 💕</button>
+            <button id="noBtn">No</button>
+        </div>
+        <div class="message" id="message"></div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <div class="celebration">🎉💖🎊</div>
+            <h2>Yay! 🥰</h2>
+            <p><strong>I knew you'd say yes!</strong></p>
+            <p>You've just made this the best Valentine's Day ever, Mansi!</p>
+            <p class="love-message">
+                "You are my today and all of my tomorrows." ❤️
+            </p>
+            <p style="font-size: 2em; margin-top: 30px;">💑 Forever & Always 💑</p>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }
+
+        setInterval(createHeart, 800);
+
+        // Button interactions
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const popup = document.getElementById('popup');
+        const message = document.getElementById('message');
+        
+        let noCount = 0;
+        const messages = [
+            "Are you sure? 🥺",
+            "Really? Think again! 💭",
+            "Don't break my heart, Mansi! 💔",
+            "The Yes button is looking pretty good right now... 👀",
+            "I'll give you one more chance! 🙏",
+            "Pleeeease? 🥹",
+            "I made this whole website just for you! 💝",
+            "You're making this very difficult... 😢",
+            "The Yes button is getting bigger... hint hint! 😉",
+            "Okay fine, but you'll regret this! 😤",
+            "Last chance! The No button is almost gone! 👻"
+        ];
+
+        // Click on No button
+        noBtn.addEventListener('click', () => {
+            noCount++;
+            
+            if (noCount <= messages.length) {
+                message.textContent = messages[noCount - 1];
+                message.style.animation = 'none';
+                setTimeout(() => {
+                    message.style.animation = 'shake 0.5s';
+                }, 10);
+                
+                // Make Yes button bigger and No button smaller
+                const yesSize = 1 + (noCount * 0.15);
+                const noSize = Math.max(0.4, 1 - (noCount * 0.1));
+                const yesPadding = 15 + (noCount * 3);
+                const noPadding = Math.max(5, 15 - (noCount * 1.5));
+                
+                yesBtn.style.transform = `scale(${yesSize})`;
+                noBtn.style.transform = `scale(${noSize})`;
+                yesBtn.style.padding = `${yesPadding}px ${yesPadding * 2}px`;
+                noBtn.style.padding = `${noPadding}px ${noPadding * 2}px`;
+                
+                // After 11 clicks, disable No button and show final message
+                if (noCount > messages.length) {
+                    noBtn.disabled = true;
+                    noBtn.style.opacity = '0.3';
+                    noBtn.style.cursor = 'not-allowed';
+                    message.textContent = "Okay, I guess you HAVE to click Yes now! 😂💕";
+                    message.style.color = '#9c27b0';
+                }
+            }
+        });
+
+        // Click on Yes button
+        yesBtn.addEventListener('click', () => {
+            popup.style.display = 'flex';
+            
+            // Create sparkles
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.classList.add('sparkle');
+                    sparkle.style.left = Math.random() * 100 + '%';
+                    sparkle.style.top = Math.random() * 100 + '%';
+                    popup.querySelector('.popup-content').appendChild(sparkle);
+                    
+                    setTimeout(() => sparkle.remove(), 1000);
+                }, i * 50);
+            }
+        });
+    </script>
+</body>
+</html>
